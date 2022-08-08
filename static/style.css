@@ -1,0 +1,18 @@
+#game-board {
+  padding: 0% 15% 30% 15%;
+}
+
+.container {
+  max-width: 800px !important;
+}
+
+.navbar-brand {
+  font-size: xx-large !important;
+}
+
+.game-cell {
+  position: relative;
+  border-radius: 10px;
+  background: lightgrey;
+  outline: solid 1px black;
+}

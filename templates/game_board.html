@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block title %}Boggle{% endblock %} {% block content %}
+
+<div>
+  <div class="row mx-3 justify-content-between">
+    <p class="col h4 text-left">
+      High Score: <span id="lbl-high-score">{{high_score}}</span><br />
+      Score: <span id="lbl-score">0</span>
+    </p>
+    <p class="col h4 text-center" id="message"></p>
+    <p class="col h4 text-end">Time left: <span id="lbl-timer"></span></p>
+
+    <div class="mb-3">
+      <form id="guess-form">
+        <div class="input-group mb-3">
+          <input type="text" id="txt-guess" class="form-control" />
+          <button class="btn btn-primary" type="submit">Submit Guess</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    #game-board .row {
+     height: {{100 / session['board']|length}}%
+    }
+  </style>
+
+  <div class="ratio ratio-1x1">
+    <div id="game-board">
+      {% for row in session['board'] %}
+      <div class="row">
+        {% for col in row %}
+        <div class="game-cell col m-1"><span class="h1 position-absolute top-50 start-50 translate-middle">{{col}}</span></div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <script src="/static/game.js"></script>
+  {% endblock %}
+</div>
